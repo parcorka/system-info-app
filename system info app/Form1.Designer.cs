@@ -42,8 +42,10 @@
             this.textBox_pc = new System.Windows.Forms.TextBox();
             this.textBox_motherboard = new System.Windows.Forms.TextBox();
             this.label_motherboard = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_bios = new System.Windows.Forms.TextBox();
             this.label_bios = new System.Windows.Forms.Label();
+            this.textBox_ram = new System.Windows.Forms.TextBox();
+            this.label_ram = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_processor
@@ -172,14 +174,14 @@
             this.label_motherboard.TabIndex = 13;
             this.label_motherboard.Text = "Motherboard";
             // 
-            // textBox1
+            // textBox_bios
             // 
-            this.textBox1.Location = new System.Drawing.Point(428, 108);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(236, 20);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.TabStop = false;
+            this.textBox_bios.Location = new System.Drawing.Point(428, 108);
+            this.textBox_bios.Name = "textBox_bios";
+            this.textBox_bios.ReadOnly = true;
+            this.textBox_bios.Size = new System.Drawing.Size(236, 20);
+            this.textBox_bios.TabIndex = 14;
+            this.textBox_bios.TabStop = false;
             // 
             // label_bios
             // 
@@ -190,14 +192,34 @@
             this.label_bios.TabIndex = 15;
             this.label_bios.Text = "BIOS";
             // 
+            // textBox_ram
+            // 
+            this.textBox_ram.Location = new System.Drawing.Point(95, 152);
+            this.textBox_ram.Name = "textBox_ram";
+            this.textBox_ram.ReadOnly = true;
+            this.textBox_ram.Size = new System.Drawing.Size(258, 20);
+            this.textBox_ram.TabIndex = 16;
+            this.textBox_ram.TabStop = false;
+            // 
+            // label_ram
+            // 
+            this.label_ram.AutoSize = true;
+            this.label_ram.Location = new System.Drawing.Point(37, 155);
+            this.label_ram.Name = "label_ram";
+            this.label_ram.Size = new System.Drawing.Size(52, 13);
+            this.label_ram.TabIndex = 17;
+            this.label_ram.Text = "RAM size";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(683, 349);
+            this.Controls.Add(this.label_ram);
+            this.Controls.Add(this.textBox_ram);
             this.Controls.Add(this.label_bios);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_bios);
             this.Controls.Add(this.label_motherboard);
             this.Controls.Add(this.textBox_motherboard);
             this.Controls.Add(this.textBox_pc);
@@ -239,8 +261,10 @@
         private System.Windows.Forms.TextBox textBox_pc;
         private System.Windows.Forms.TextBox textBox_motherboard;
         private System.Windows.Forms.Label label_motherboard;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_bios;
         private System.Windows.Forms.Label label_bios;
+        private System.Windows.Forms.TextBox textBox_ram;
+        private System.Windows.Forms.Label label_ram;
     }
 }
 

@@ -26,7 +26,8 @@ namespace system_info_app
             textBox_os.Text = Environment.OSVersion.ToString();
             textBox_pc.Text = Environment.MachineName.ToString();
             textBox_motherboard.Text = MotherBoard();
-            textBox1.Text = Bios();
+            textBox_bios.Text = BIOS();
+            textBox_ram.Text = RAM();
         }
 
         private void Processor()
@@ -75,7 +76,7 @@ namespace system_info_app
                 return "";
             }
         }
-        private string Bios()
+        private string BIOS()
         {
             ManagementObjectSearcher searcher1 = new ManagementObjectSearcher("SELECT * FROM Win32_BIOS");
             ManagementObjectCollection collection = searcher1.Get();
@@ -85,6 +86,21 @@ namespace system_info_app
                     return ("BIOS VERSION: " + ((string[])obj["BIOSVersion"])[0] + " - " + ((string[])obj["BIOSVersion"])[1]);
                 else
                    return ("BIOS VERSION: " + ((string[])obj["BIOSVersion"])[0]);
+            }
+            return "";
+        }
+        private string RAM()
+        {
+            ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
+            ManagementObjectCollection results = searcher.Get();
+
+            foreach (ManagementObject result in results)
+            {
+                //res = Convert.ToDouble(result["TotalVisibleMemorySize"]);
+                double ram = Math.Round((Convert.ToDouble(result["TotalVisibleMemorySize"]) / (1024 * 1024)), 0);
+                return (ram + " GB");
+                //Console.WriteLine("Total usable memory size: " + res + "KB");
             }
             return "";
         }
