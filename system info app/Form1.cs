@@ -21,7 +21,7 @@ namespace system_info_app
 
             // filling textboxes
             Processor();
-            Graphic_Card();
+            GraphicsCard();
             textBox_user.Text = Environment.UserName;
             textBox_os.Text = Environment.OSVersion.ToString();
             textBox_pc.Text = Environment.MachineName.ToString();
@@ -32,7 +32,9 @@ namespace system_info_app
 
         private void Processor()
         {
-            RegistryKey processor_name = Registry.LocalMachine.OpenSubKey(@"Hardware\Description\System\CentralProcessor\0", RegistryKeyPermissionCheck.ReadSubTree);   //This registry entry contains entry for processor info.
+            //This registry entry contains entry for processor info.
+            RegistryKey processor_name = Registry.LocalMachine.OpenSubKey(@"Hardware\Description\System\CentralProcessor\0", 
+                RegistryKeyPermissionCheck.ReadSubTree);
 
             if (processor_name != null)
             {
@@ -41,9 +43,9 @@ namespace system_info_app
                     textBox_processor.Text = processor_name.GetValue("ProcessorNameString").ToString();
                 }
             }
-            textBox_cores.Text = "кол-во ядер: " + Environment.ProcessorCount.ToString();
+            textBox_cores.Text = /*"кол-во ядер: " +*/ Environment.ProcessorCount.ToString();
         }
-        private void Graphic_Card()
+        private void GraphicsCard()
         {
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_DisplayConfiguration");
 
